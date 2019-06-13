@@ -5,10 +5,9 @@
 // https://editor.p5js.org/codingtrain/sketches/LbNt1nyxE
 
 class Bird {
-
   constructor(x, y, r) {
     const options = {
-      restitution: 0.5
+      restitution: Koji.config.strings.bounce
     }
     this.body = Matter.Bodies.circle(x, y, r, options);
     Matter.Body.setMass(this.body, this.body.mass*4);

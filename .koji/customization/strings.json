@@ -1,6 +1,8 @@
 {
   "strings": {
-    "content": "Koji P5 Scaffold"
+    "content": "Koji P5 Scaffold",
+    "bounce": ".5",
+    "radius": "20"
   },
   "@@editor": [
     {
@@ -14,6 +16,17 @@
           "name": "Page Content",
           "description": "The text that is displayed on the page",
           "type": "text"
+        },
+        {
+          "key": "bounce",
+          "name": "Coefficient of restitution",
+          "description": "0 to 1 (1 being a perfectly elastic",
+          "type": "text"
+        },
+        {
+          "key": "radius",
+          "name": "Circle radius",
+          "description": "Radius in pixels of the object to launch"
         }
       ]
     }

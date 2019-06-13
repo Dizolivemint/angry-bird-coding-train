@@ -30,7 +30,7 @@ function setup() {
   for (let i = 0; i < 3; i++) {
     boxes[i] = new Box(450, 300 - i * 75, 84, 100);
   }
-  bird = new Bird(150, 300, 25);
+  bird = new Bird(150, 300, Koji.config.strings.radius);
 
   slingshot = new SlingShot(150, 300, bird.body);
 
@@ -48,7 +48,7 @@ function setup() {
 function keyPressed() {
   if (key == ' ') {
     World.remove(world, bird.body);
-    bird = new Bird(150, 300, 25);
+    bird = new Bird(150, 300, Koji.config.strings.radius);
     slingshot.attach(bird.body);
   }
 
@@ -57,7 +57,7 @@ function keyPressed() {
 function mouseReleased() {
   setTimeout(() => {
     slingshot.fly();
-  }, 100);
+  }, 150);
 }
 
 function draw() {
