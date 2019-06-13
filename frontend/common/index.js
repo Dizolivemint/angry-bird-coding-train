@@ -17,15 +17,15 @@ import './index.css';
 Koji.pageLoad();
 window.Koji = Koji;
 
-require('script-loader!app/index.js');
+require('script-loader!app/sketch.js');
 new p5();
 
 if (module.hot) {
-    module.hot.accept('script-loader!app/index.js', () => {
+    module.hot.accept('script-loader!app/sketch.js', () => {
         let oldCanvas = document.getElementsByTagName('canvas')[0];
         oldCanvas.parentNode.removeChild(oldCanvas);
 
-        require('script-loader!app/index.js');
+        require('script-loader!app/sketch.js');
         new p5();
     });
 }

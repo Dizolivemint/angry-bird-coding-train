@@ -17,9 +17,9 @@ let boxImg;
 let bkgImg;
 
 function preload() {
-  dotImg = loadImage('images/dot.png');
-  boxImg = loadImage('images/equals.png');
-  bkgImg = loadImage('images/skyBackground.png');
+  dotImg = loadImage(Koji.config.images.dot);
+  boxImg = loadImage(Koji.config.images.box);
+  bkgImg = loadImage(Koji.config.images.bg);
 }
 
 function setup() {

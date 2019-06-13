@@ -1,6 +1,8 @@
 {
   "images": {
-    "mouse": "https://images.koji-cdn.com/76a58d18-9031-4cf9-871c-b4701b0e2537/f4864534-ede5-40e9-ac53-a81df8a25d77.png"
+    "dot": "https://i.imgur.com/wvIXNIk.png",
+    "box": "https://i.imgur.com/H9w4Asj.png",
+    "bg": "https://images.koji-cdn.com/17691ec1-a9a5-4257-a5c0-fbd2be017511/a86d8c34-f44c-45ec-b2ac-bbbe85ebeacc.jpg"
   },
   "@@editor": [
     {
@@ -10,9 +12,21 @@
       "source": "images.json",
       "fields": [
         {
-          "key": "mouse",
-          "name": "Icon",
-          "description": "Icon that spins on the page",
+          "key": "dot",
+          "name": "Dot",
+          "description": "Image of your angry dot (100x100)",
+          "type": "image"
+        },
+        {
+          "key": "box",
+          "name": "Box",
+          "description": "Image of your box (84x100)",
+          "type": "image"
+        },
+        {
+          "key": "bg",
+          "name": "Background",
+          "description": "Background image (711x400)",
           "type": "image"
         }
       ]
