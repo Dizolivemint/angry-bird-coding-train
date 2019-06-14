@@ -1,8 +1,8 @@
 {
   "images": {
-    "dot": "https://i.imgur.com/wvIXNIk.png",
-    "box": "https://i.imgur.com/H9w4Asj.png",
-    "bg": "https://images.koji-cdn.com/17691ec1-a9a5-4257-a5c0-fbd2be017511/a86d8c34-f44c-45ec-b2ac-bbbe85ebeacc.jpg"
+    "dot": "https://images.koji-cdn.com/e34b2031-3c59-4bd2-b6ac-8d31fbf21f40/dot.png",
+    "box": "https://images.koji-cdn.com/e34b2031-3c59-4bd2-b6ac-8d31fbf21f40/equals.png",
+    "bg": "https://images.koji-cdn.com/e34b2031-3c59-4bd2-b6ac-8d31fbf21f40/skyBackground.png"
   },
   "@@editor": [
     {

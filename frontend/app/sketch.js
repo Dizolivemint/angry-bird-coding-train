@@ -16,6 +16,23 @@ let dotImg;
 let boxImg;
 let bkgImg;
 
+
+// Screen size
+let width = window.innerWidth;
+let height = window.innerHeight;
+
+// Aspect ratio (Ratio * width = height)
+let ratio = 0.5625;
+
+// Object scaler
+let objScale = 1;
+let vmin = Math.min(window.innerHeight, window.innerWidth)
+objScale = vmin / 1080;
+
+// Position of bird
+let posBird = [canvas.width / 8, canvas.height / 2]
+let canvas;
+
 function preload() {
   dotImg = loadImage(Koji.config.images.dot);
   boxImg = loadImage(Koji.config.images.box);
@@ -23,16 +40,18 @@ function preload() {
 }
 
 function setup() {
-  const canvas = createCanvas(711, 400);
+  canvas = createCanvas(window.innerWidth, window.innerWidth * ratio);
+  canvas.parent('sketch');
   engine = Engine.create();
   world = engine.world;
+
   ground = new Ground(width / 2, height - 10, width, 20);
   for (let i = 0; i < 3; i++) {
     boxes[i] = new Box(450, 300 - i * 75, 84, 100);
   }
-  bird = new Bird(150, 300, Koji.config.strings.radius);
+  bird = new Bird(posBird[0], posBird[1], Koji.config.strings.radius  * objScale);
 
-  slingshot = new SlingShot(150, 300, bird.body);
+  slingshot = new SlingShot(posBird[0], posBird[1], bird.body);
 
   const mouse = Mouse.create(canvas.elt);
   const options = {
@@ -47,16 +66,14 @@ function setup() {
 
 function keyPressed() {
   if (key == ' ') {
-    World.remove(world, bird.body);
-    bird = new Bird(150, 300, Koji.config.strings.radius);
-    slingshot.attach(bird.body);
+    resetSketch();
   }
-
 }
 
 function mouseReleased() {
   setTimeout(() => {
     slingshot.fly();
+    
   }, 150);
 }
 
@@ -69,4 +86,16 @@ function draw() {
   }
   slingshot.show();
   bird.show();
+}
+
+// Resize canvas automatically and reset
+function windowResized() {
+  resizeCanvas(window.innerWidth, window.innerWidth * ratio);
+  resetSketch();
+}
+
+function resetSketch() {
+  World.remove(world, bird.body);
+  bird = new Bird(150, 300, Koji.config.strings.radius);
+  slingshot.attach(bird.body);
 }
