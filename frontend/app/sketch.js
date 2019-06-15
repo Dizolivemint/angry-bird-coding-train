@@ -29,8 +29,6 @@ let objScale = 1;
 let vmin = Math.min(window.innerHeight, window.innerWidth)
 objScale = vmin / 1080;
 
-// Position of bird
-let posBird = [canvas.width / 8, canvas.height / 2]
 let canvas;
 
 function preload() {
@@ -44,6 +42,9 @@ function setup() {
   canvas.parent('sketch');
   engine = Engine.create();
   world = engine.world;
+
+  // Position of bird
+  let posBird = [canvas.width / 8, canvas.height / 2]
 
   ground = new Ground(width / 2, height - 10, width, 20);
   for (let i = 0; i < 3; i++) {
@@ -66,14 +67,15 @@ function setup() {
 
 function keyPressed() {
   if (key == ' ') {
-    resetSketch();
+    World.remove(world, bird.body);
+    bird = new Bird(150, 300, Koji.config.strings.radius);
+    slingshot.attach(bird.body);
   }
 }
 
 function mouseReleased() {
   setTimeout(() => {
     slingshot.fly();
-    
   }, 150);
 }
 
@@ -91,11 +93,11 @@ function draw() {
 // Resize canvas automatically and reset
 function windowResized() {
   resizeCanvas(window.innerWidth, window.innerWidth * ratio);
-  resetSketch();
+//   resetSketch();
 }
 
-function resetSketch() {
-  World.remove(world, bird.body);
-  bird = new Bird(150, 300, Koji.config.strings.radius);
-  slingshot.attach(bird.body);
-}
+// function resetSketch() {
+//   World.remove(world, bird.body);
+//   bird = new Bird(150, 300, Koji.config.strings.radius);
+//   slingshot.attach(bird.body);
+// }

@@ -17,6 +17,10 @@ import './index.css';
 Koji.pageLoad();
 window.Koji = Koji;
 
+require('script-loader!app/slingshot.js');
+require('script-loader!app/bird.js');
+require('script-loader!app/box.js');
+require('script-loader!app/ground.js');
 require('script-loader!app/sketch.js');
 new p5();
 
