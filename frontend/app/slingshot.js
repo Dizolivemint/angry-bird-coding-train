@@ -5,7 +5,7 @@
 // https://editor.p5js.org/codingtrain/sketches/LbNt1nyxE
 
 class SlingShot {
-  constructor(x, y, body) {
+  constructor(x, y, body, objScale) {
 
     const options = {
       pointA: {
@@ -13,8 +13,8 @@ class SlingShot {
         y: y
       },
       bodyB: body,
-      stiffness: 0.02,
-      length: 40
+      stiffness: .05 * (1 / objScale),
+      length: 40 * objScale
     }
     this.sling = Constraint.create(options);
     World.add(world, this.sling);

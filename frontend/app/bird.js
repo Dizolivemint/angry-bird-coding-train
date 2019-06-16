@@ -7,7 +7,8 @@
 class Bird {
   constructor(x, y, r) {
     const options = {
-      restitution: Koji.config.strings.bounce
+      restitution: Koji.config.strings.bounce,
+      density: 0.004
     }
     this.body = Matter.Bodies.circle(x, y, r, options);
     Matter.Body.setMass(this.body, this.body.mass*4);
