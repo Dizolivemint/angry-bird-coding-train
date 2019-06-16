@@ -42,7 +42,15 @@ function preload() {
 }
 
 function setup() {
-  canvas = createCanvas(window.innerWidth, window.innerWidth * ratio);
+  height = window.innerWidth * ratio;
+  width = window.innerWidth;
+  console.log(width, height)
+  if (height > window.innerHeight) {
+    height = window.innerHeight;
+    width = height / ratio;
+    console.log(width, height)
+  }
+  canvas = createCanvas(width, height);
   canvas.parent('sketch');
 
   // Create engine
@@ -122,12 +130,5 @@ function draw() {
 
 // Resize canvas automatically and reset
 function windowResized() {
-  resizeCanvas(window.innerWidth, window.innerWidth * ratio);
-//   resetSketch();
+  location.reload()
 }
-
-// function resetSketch() {
-//   World.remove(world, bird.body);
-//   bird = new Bird(150, 300, Koji.config.strings.radius);
-//   slingshot.attach(bird.body);
-// }
